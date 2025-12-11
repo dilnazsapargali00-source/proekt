@@ -1,0 +1,35 @@
+logging:
+  version: 1
+  disable_existing_loggers: false
+
+  formatters:
+    simple:
+      format: "[%(asctime)s] %(levelname)s - %(name)s - %(message)s"
+
+  handlers:
+    file:
+      class: logging.FileHandler
+      formatter: simple
+      filename: cinema.log
+      encoding: utf-8
+
+  root:
+    level: INFO
+    handlers: [file]
+
+  loggers:
+    cinema:
+      level: INFO
+      handlers: [file]
+      propagate: true
+
+app:
+  log_level: DEBUG
+  enable_logging: true
+  allow_negative_views: false
+  max_rating: 10
+  min_rating: 0
+
+database:
+  host: localhost
+  port: 5432
